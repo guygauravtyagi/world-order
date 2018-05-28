@@ -1,6 +1,6 @@
 {
   "name": "world-order",
-  "app_id": "",
+  "app_id": "b36cd680",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
