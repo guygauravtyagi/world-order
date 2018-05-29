@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GlobalProvider } from '../../providers/global/global';
 
 
 @Component({
@@ -8,13 +9,15 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
   tileInfoArr: Array<any> = [];
-  constructor(public navCtrl: NavController) {
+  gameObject: any;
+  constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
   }
 
   ngOnInit() {
+    this.globalService.startGame();
     this.tileInfoArr = [
       {
-        tileName :'Tile One'
+        tileName :'Research'
       },
       {
         tileName :'Tile Two'
@@ -27,5 +30,27 @@ export class HomePage {
       },
     ];
   }
+
+  tileClicked (tileInfo) {
+    switch (tileInfo.tileName) {
+      case 'Research':
+        this.doResearch();
+        break;    
+      default:
+        break;
+    }
+  }
+
+  doResearch() {
+    this.gameObject = this.getGameObject();
+    this.gameObject['activeResearch'] = {
+      name: "Something Research",
+      timeRemaining: 20,
+    }
+  };
+
+  private getGameObject () {
+    return this.globalService.getGameObject();
+  };
 
 }

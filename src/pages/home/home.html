@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content padding>
+  <p *ngIf= "gameObject && gameObject.activeResearch">
+    {{gameObject.activeResearch.name}}
+  </p>
   <div *ngFor="let tileinfo of tileInfoArr; index as i; even as isEven; odd as isOdd">
-    <tile [tileinfo] = "tileinfo"></tile>
+    <tile [tileinfo] = "tileinfo" (click)="tileClicked(tileinfo)"></tile>
   </div>
 </ion-content>
