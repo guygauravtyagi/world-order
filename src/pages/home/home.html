@@ -5,6 +5,16 @@
 </ion-header>
 
 <ion-content padding>
+  <h4>
+    <div>
+        <label>
+          Research Points - 
+          <span *ngIf= "gameObject && gameObject.researchPoints">
+              {{gameObject.researchPoints | floor}}
+          </span>
+        </label>
+    </div>
+  </h4>
   <p *ngIf= "gameObject && gameObject.activeResearch">
     {{gameObject.activeResearch.name}}
   </p>

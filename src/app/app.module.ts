@@ -4,6 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { FloorPipe } from '../pipes/floor/floor';
+
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -20,6 +22,7 @@ import { GlobalProvider } from '../providers/global/global';
 @NgModule({
   declarations: [
     MyApp,
+    FloorPipe,
     AboutPage,
     HomePage,
     TabsPage,

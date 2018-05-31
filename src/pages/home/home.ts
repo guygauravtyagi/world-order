@@ -11,10 +11,10 @@ export class HomePage {
   tileInfoArr: Array<any> = [];
   gameObject: any;
   constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
+    this.globalService.getGameDummy().subscribe(data => this.startHelper(data) , error => console.log(error));
   }
 
   ngOnInit() {
-    this.globalService.startGame();
     this.tileInfoArr = [
       {
         tileName :'Research'
@@ -30,6 +30,12 @@ export class HomePage {
       },
     ];
   }
+  
+  startHelper(data) {
+    this.globalService.updateGameObject(data);
+    this.globalService.gameCycle();
+    this.gameObject = this.getGameObject();
+  };
 
   tileClicked (tileInfo) {
     switch (tileInfo.tileName) {
@@ -42,7 +48,6 @@ export class HomePage {
   }
 
   doResearch() {
-    this.gameObject = this.getGameObject();
     this.gameObject['activeResearch'] = {
       name: "Something Research",
       timeRemaining: 20,

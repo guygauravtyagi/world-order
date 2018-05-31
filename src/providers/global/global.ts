@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class GlobalProvider {
   private gameObj: any;
+  private CONST_GAME_CYCLE:Number = 1000;
 
   constructor(public http: HttpClient) {
 
@@ -17,15 +18,6 @@ export class GlobalProvider {
 
   updateGameObject (gameObj) {
     this.gameObj = gameObj;
-  };
-
-  startGame () {
-    this.getGameDummy().subscribe(data => this.startHelper(data) , error => console.log(error));
-  };
-
-  startHelper(data) {
-    this.updateGameObject(data);
-    this.gameCycle();
   };
 
   gameCycle () {
@@ -54,11 +46,16 @@ export class GlobalProvider {
           this.gameObj.activeBuild.timeRemaining--;
         }
       }
-    }, 1000);
+      this.runInCycle();
+    }, this.CONST_GAME_CYCLE);
   };
 
   finishResearch () {
     this.gameObj.researchCount++;
+  };
+
+  runInCycle () {
+    this.gameObj.researchPoints += this.gameObj.researchIncrement;
   };
 
   finishLaw () {

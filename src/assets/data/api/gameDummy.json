@@ -1,4 +1,69 @@
 {
-    "researchCount":0
-
+    "researchCount":0,
+    "researchPoints": 0.01,
+    "researchIncrement": 0.01,
+    "researchList": [
+        {
+            "name":"Fire",
+            "id":"0",
+            "isDone":false,
+            "pointRequired": 10,
+            "boosts":[
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
+    ],
+    "buildPoints":0.01,
+    "buildIncrement":0.01,
+    "provinces": [
+        {
+            "id":"0",
+            "name":"Delhi",
+            "worth": 1000,
+            "population": 0,
+            "pollution": 0,
+            "literacy": 0,
+            "area": 10000,
+            "resources":[
+                {
+                    "name":"forest",
+                    "id":"0"
+                },
+                {
+                    "name":"farmland",
+                    "id":"1"
+                },
+                {
+                    "name":"caves",
+                    "id":"2"
+                }
+            ]
+        },
+        {
+            "id":"0",
+            "name":"Meerut",
+            "worth": 1000,
+            "population": 0,
+            "pollution": 0,
+            "literacy": 0,
+            "area": 10000,
+            "resources":[
+                {
+                    "name":"forest",
+                    "id":"0"
+                },
+                {
+                    "name":"farmland",
+                    "id":"1"
+                },
+                {
+                    "name":"clay",
+                    "id":"3"
+                }
+            ]
+        }
+    ]
 }
