@@ -13,7 +13,7 @@ export class TileComponent {
   }
 
   ngOnInit() {    
-    this.text = this.tileinfo.tileName;
+    this.text = this.tileinfo.name;
   }
 
 }

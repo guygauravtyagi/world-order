@@ -27,6 +27,7 @@
             "pollution": 0,
             "literacy": 0,
             "area": 10000,
+            "buildings": [],
             "resources":[
                 {
                     "name":"forest",
@@ -43,13 +44,14 @@
             ]
         },
         {
-            "id":"0",
+            "id":"1",
             "name":"Meerut",
             "worth": 1000,
             "population": 0,
             "pollution": 0,
             "literacy": 0,
             "area": 10000,
+            "buildings": [],
             "resources":[
                 {
                     "name":"forest",

@@ -17,16 +17,16 @@ export class HomePage {
   ngOnInit() {
     this.tileInfoArr = [
       {
-        tileName :'Research'
+        name :'Research'
       },
       {
-        tileName :'Tile Two'
+        name :'Tile Two'
       },
       {
-        tileName :'Tile Three'
+        name :'Tile Three'
       },
       {
-        tileName :'Tile Four'
+        name :'Tile Four'
       },
     ];
   }

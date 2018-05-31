@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-icon name="arrow-back" (click)="goBack();"></ion-icon>
+    <ion-title>Build</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="!openConstruction">
+    <div>
+      <h5>
+        {{province.name}}
+      </h5>
+      <h6>
+        Sell for : $
+        <span>{{province.worth}}</span>
+      </h6>
+
+      <label>
+        Population -
+        <span>{{province.population}}</span>
+      </label>
+
+      <label>
+        Pollution -
+        <span>{{province.pollution}}</span>
+      </label>
+
+      <label>
+        Literacy -
+        <span>{{province.literacy}}</span>
+      </label>
+
+    </div>
+
+    <div>
+      <button (click)="buildFacility('resident')">
+        Build Resident
+      </button>
+      <button (click)="buildFacility('commercial')">
+        Build Comercial
+      </button>
+      <button (click)="buildFacility('research')">
+        Build Research
+      </button>
+    </div>
+  </div>
+  <div *ngIf="openConstruction">
+    <div>
+      <button (click)="closeConstruction()">
+        Go Back
+      </button>
+    </div>
+    <div *ngIf="houseList && houseList.length > 0 && openHousingList">
+      <div *ngFor="let house of houseList; index as i; even as isEven; odd as isOdd">
+        <button (click)="houseClicked(house)">{{house.name}}</button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

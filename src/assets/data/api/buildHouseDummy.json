@@ -1,0 +1,56 @@
+[
+    {
+        "name":"Cave",
+        "cost":2,
+        "area":1,
+        "populationLimit":4,
+        "pollutionGeneration":0,
+        "happinessLoss":0,
+        "age":1
+    },
+    {
+        "name":"Leave House",
+        "cost":2,
+        "area":1,
+        "populationLimit":4,
+        "pollutionGeneration":0,
+        "happinessLoss":0,
+        "age":1
+    },
+    {
+        "name":"Straw House",
+        "cost":2,
+        "area":1,
+        "populationLimit":4,
+        "pollutionGeneration":0,
+        "happinessLoss":0,
+        "age":1
+    },
+    {
+        "name":"Stick House",
+        "cost":2,
+        "area":1,
+        "populationLimit":4,
+        "pollutionGeneration":0,
+        "happinessLoss":0,
+        "age":1
+    },
+    {
+        "name":"Tree House",
+        "cost":2,
+        "area":1,
+        "populationLimit":4,
+        "pollutionGeneration":0,
+        "happinessLoss":0,
+        "age":1
+    },
+    {
+        "name":"Mud House",
+        "cost":2,
+        "area":1,
+        "populationLimit":4,
+        "pollutionGeneration":0,
+        "happinessLoss":0,
+        "age":1
+    }
+]

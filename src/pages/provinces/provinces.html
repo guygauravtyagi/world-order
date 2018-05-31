@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Provinces</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngFor="let province of provincesObj; index as i; even as isEven; odd as isOdd">
+    <tile [tileinfo] = "province" (click)="tileClicked(province)"></tile>
+  </div>
+  <div>
+
+  </div>
+</ion-content>

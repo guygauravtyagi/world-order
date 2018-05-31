@@ -6,22 +6,22 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class GlobalProvider {
   private gameObj: any;
-  private CONST_GAME_CYCLE:Number = 1000;
+  private CONST_GAME_CYCLE: Number = 1000;
 
   constructor(public http: HttpClient) {
 
   }
 
-  getGameObject () {
+  getGameObject() {
     return this.gameObj;
   };
 
-  updateGameObject (gameObj) {
+  updateGameObject(gameObj) {
     this.gameObj = gameObj;
   };
 
-  gameCycle () {
-    setInterval(()=> {
+  gameCycle() {
+    setInterval(() => {
       if (this.gameObj.activeResearch) {
         if (this.gameObj.activeResearch.timeRemaining === 0) {
           this.finishResearch();
@@ -50,29 +50,37 @@ export class GlobalProvider {
     }, this.CONST_GAME_CYCLE);
   };
 
-  finishResearch () {
+  finishResearch() {
     this.gameObj.researchCount++;
   };
 
-  runInCycle () {
+  runInCycle() {
     this.gameObj.researchPoints += this.gameObj.researchIncrement;
   };
 
-  finishLaw () {
+  finishLaw() {
 
   };
 
-  getInsideObj (obj, srtName) {
+  getInsideObj(obj, srtName) {
     return obj[srtName];
   };
 
-  getGameDummy(){
+  getGameDummy() {
     let apiUrl = './assets/data/api/gameDummy.json';
     return this.http.get(apiUrl)
-    .map( (response: Response) => {
-       const data = response;
-       return data;
-    });
- }
+      .map((response: Response) => {
+        const data = response;
+        return data;
+      });
+  };
 
+  getBuildHouseDummy() {
+    let apiUrl = './assets/data/api/buildHouseDummy.json';
+    return this.http.get(apiUrl)
+      .map((response: Response) => {
+        const data = response;
+        return data;
+      });
+  };
 }

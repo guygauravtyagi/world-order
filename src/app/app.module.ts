@@ -6,31 +6,35 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { FloorPipe } from '../pipes/floor/floor';
 
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { GlobalProvider } from '../providers/global/global';
+
+import {TileComponent} from '../components/tile/tile';
+
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { GamePage } from '../pages/game/game';
-import {TileComponent} from '../components/tile/tile';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { GlobalProvider } from '../providers/global/global';
+import { ProvincesPage } from '../pages/provinces/provinces';
+import { BuildPage } from '../pages/build/build';
+import { CommonMethodsProvider } from '../providers/common-methods/common-methods';
 
 @NgModule({
   declarations: [
     MyApp,
     FloorPipe,
+    TileComponent,
     AboutPage,
     HomePage,
     TabsPage,
-    GamePage,
+    ProvincesPage,
     LoginPage,
     SignupPage,
     WelcomePage,
-    TileComponent
+    BuildPage,
   ],
   imports: [
     BrowserModule,
@@ -40,21 +44,23 @@ import { GlobalProvider } from '../providers/global/global';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    TileComponent,
     AboutPage,
     HomePage,
     TabsPage,
-    GamePage,
+    ProvincesPage,
     LoginPage,
     SignupPage,
     WelcomePage,
-    TileComponent
+    BuildPage,
   ],
   providers: [
     HttpClientModule,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalProvider
+    GlobalProvider,
+    CommonMethodsProvider
   ]
 })
 export class AppModule {}
