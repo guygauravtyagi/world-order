@@ -4,55 +4,50 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { FloorPipe } from '../pipes/floor/floor';
+import { PipesModule } from '../pipes/pipes.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalProvider } from '../providers/global/global';
 
-import {TileComponent} from '../components/tile/tile';
+import {ComponentsModule} from '../components/components.module';
 
-import { WelcomePage } from '../pages/welcome/welcome';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
+import { WelcomePageModule } from '../pages/welcome/welcome.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { SignupPageModule } from '../pages/signup/signup.module';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProvincesPage } from '../pages/provinces/provinces';
-import { BuildPage } from '../pages/build/build';
+import { BuildPageModule } from '../pages/build/build.module';
 import { CommonMethodsProvider } from '../providers/common-methods/common-methods';
 
 @NgModule({
   declarations: [
     MyApp,
-    FloorPipe,
-    TileComponent,
     AboutPage,
     HomePage,
     TabsPage,
     ProvincesPage,
-    LoginPage,
-    SignupPage,
-    WelcomePage,
-    BuildPage,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    PipesModule,
+    ComponentsModule,
+    BuildPageModule,
+    LoginPageModule,
+    SignupPageModule,
+    WelcomePageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TileComponent,
     AboutPage,
     HomePage,
     TabsPage,
     ProvincesPage,
-    LoginPage,
-    SignupPage,
-    WelcomePage,
-    BuildPage,
   ],
   providers: [
     HttpClientModule,
