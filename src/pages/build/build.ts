@@ -12,6 +12,7 @@ import { CommonMethodsProvider } from '../../providers/common-methods/common-met
   templateUrl: 'build.html',
 })
 export class BuildPage {
+  pageTittle: String;
   gameObj: any;
   province: any;
   id: Number;
@@ -28,9 +29,12 @@ export class BuildPage {
     this.gameObj.provinces.forEach(element => {
       if (element.id === this.id) {
         this.province = element;
+        this.pageTittle = this.province.name;
       }
     });
   }
+
+  
 
   buildHouseHelper(info) {
     this.houseList = info;
@@ -41,6 +45,7 @@ export class BuildPage {
       case 'resident':
         this.openConstruction = true;
         this.openHousingList = true;
+        this.pageTittle = "Build Residence"
         break;
       case 'commercial':
 
@@ -55,10 +60,11 @@ export class BuildPage {
 
   closeConstruction () {
     this.openConstruction = false;
+    this.pageTittle = this.province.name;
   };
 
   houseClicked (house) {
-
+    this.common.incrementHouse(this.province, 'residence', house, this.gameObj);
   };
 
   goBack () {

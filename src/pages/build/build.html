@@ -1,7 +1,13 @@
 <ion-header>
-  <ion-navbar>
-    <ion-icon name="arrow-back" (click)="goBack();"></ion-icon>
-    <ion-title>Build</ion-title>
+  <ion-navbar>    
+    <ion-title>
+      <span style="text-align: left">
+          <ion-icon name="arrow-back" (click)="goBack();"></ion-icon>
+      </span>
+      <span style="text-align: center">
+          {{pageTittle}}
+      </span>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +20,7 @@
       </h5>
       <h6>
         Sell for : $
-        <span>{{province.worth}}</span>
+        <span>{{province.worth | floor}}</span>
       </h6>
 
       <label>

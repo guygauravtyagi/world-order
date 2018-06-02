@@ -2,6 +2,7 @@
     "researchCount":0,
     "researchPoints": 0.01,
     "researchIncrement": 0.01,
+    "worther":10,
     "researchList": [
         {
             "name":"Fire",
@@ -23,11 +24,21 @@
             "id":"0",
             "name":"Delhi",
             "worth": 1000,
+            "populationLimit":0,
             "population": 0,
             "pollution": 0,
             "literacy": 0,
+            "employed":0,
+            "happiness":100,
+            "stability":100,
             "area": 10000,
-            "buildings": [],
+            "buildings": {
+                "commercial":[],
+                "residence":[],
+                "government":[],
+                "happiness":[],
+                "resource":[]
+            },
             "resources":[
                 {
                     "name":"forest",
@@ -50,8 +61,17 @@
             "population": 0,
             "pollution": 0,
             "literacy": 0,
+            "employed":0,
+            "happiness":100,
+            "stability":100,
             "area": 10000,
-            "buildings": [],
+            "buildings": {
+                "commercial":[],
+                "residence":[],
+                "government":[],
+                "happiness":[],
+                "resource":[]
+            },
             "resources":[
                 {
                     "name":"forest",

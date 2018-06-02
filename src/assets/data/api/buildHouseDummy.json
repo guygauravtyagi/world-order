@@ -1,56 +1,62 @@
 [
     {
-        "name":"Cave",
+        "name":"cave",
+        "displayName":"Cave",
         "cost":2,
         "area":1,
         "populationLimit":4,
-        "pollutionGeneration":0,
-        "happinessLoss":0,
+        "pollution":0,
+        "happiness":0,
         "age":1
     },
     {
-        "name":"Leave House",
+        "name":"leafHouse",
+        "displayName":"Leaves House",
         "cost":2,
         "area":1,
         "populationLimit":4,
-        "pollutionGeneration":0,
-        "happinessLoss":0,
+        "pollution":0,
+        "happiness":0,
         "age":1
     },
     {
-        "name":"Straw House",
+        "name":"strawHouse",
+        "displayName":"Straw House",
         "cost":2,
         "area":1,
         "populationLimit":4,
-        "pollutionGeneration":0,
-        "happinessLoss":0,
+        "pollution":0,
+        "happiness":0,
         "age":1
     },
     {
-        "name":"Stick House",
+        "name":"stickHouse",
+        "displayName":"Stick House",
         "cost":2,
         "area":1,
         "populationLimit":4,
-        "pollutionGeneration":0,
-        "happinessLoss":0,
+        "pollution":0,
+        "happiness":0,
         "age":1
     },
     {
-        "name":"Tree House",
+        "name":"treeHouse",
+        "displayName":"Tree House",
         "cost":2,
         "area":1,
         "populationLimit":4,
-        "pollutionGeneration":0,
-        "happinessLoss":0,
+        "pollution":0,
+        "happiness":0,
         "age":1
     },
     {
-        "name":"Mud House",
+        "name":"mudHouse",
+        "displayName":"Mud House",
         "cost":2,
         "area":1,
         "populationLimit":4,
-        "pollutionGeneration":0,
-        "happinessLoss":0,
+        "pollution":0,
+        "happiness":0,
         "age":1
     }
 ]

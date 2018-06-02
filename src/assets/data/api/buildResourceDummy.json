@@ -1,0 +1,54 @@
+[
+    {
+        "name":"bones",
+        "displayName": "Bones",
+        "id":0,
+        "cost":0,
+        "tradeValue":0,
+        "area":2,
+        "activeCollector":{},
+        "collector":[
+            {
+                "name":"forager",
+                "displayName": "Forager",
+                "speed":1
+            },
+            {
+                "name":"basicHunter",
+                "displayName": "Basic Hunter",
+                "speed":2
+            },
+            {
+                "name":"equipedHunter",
+                "displayName": "Equipped Hunter",
+                "speed":3
+            }
+        ]
+    },    
+    {
+        "name":"spices",
+        "displayName": "Spices",
+        "id":0,
+        "cost":0,
+        "tradeValue":0,
+        "area":2,
+        "activeCollector":{},
+        "collector":[
+            {
+                "name":"gatherer",
+                "displayName": "Gatherer",
+                "speed":1
+            },
+            {
+                "name":"farmer",
+                "displayName": "Farmer",
+                "speed":2
+            },
+            {
+                "name":"equipedFarmer",
+                "displayName": "Equipped Farmer",
+                "speed":3
+            }
+        ]
+    }
+]
