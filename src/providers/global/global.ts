@@ -56,12 +56,19 @@ export class GlobalProvider {
 
   runInCycle() {
     this.gameObj.researchPoints += this.gameObj.researchIncrement;
-
+    this.updateDataFromProvinces();
   };
 
   updateDataFromProvinces () {
     this.gameObj.provinces.forEach(element => {
-      
+      if (element.populationLimit > element.population) {
+        element.population++;
+        this.gameObj.population ++;
+      }
+      if (element.pollutionLimit > element.pollution) {
+        element.pollution++;
+        this.gameObj.pollution++;
+      }
     });
   };
 
@@ -74,17 +81,23 @@ export class GlobalProvider {
   };
 
   getGameDummy() {
-    let apiUrl = './assets/data/api/gameDummy.json';
-    return this.http.get(apiUrl)
+    return this.http.get('./assets/data/api/gameDummy.json')
       .map((response: Response) => {
         const data = response;
         return data;
       });
   };
 
+  getAgeList() {
+    return this.http.get('./assets/data/api/ageListDummy.json')
+      .map((response: Response) => {
+        const data = response;
+        return data;
+      });
+  }
+
   getBuildHouseDummy() {
-    let apiUrl = './assets/data/api/buildHouseDummy.json';
-    return this.http.get(apiUrl)
+    return this.http.get('./assets/data/api/buildHouseDummy.json')
       .map((response: Response) => {
         const data = response;
         return data;

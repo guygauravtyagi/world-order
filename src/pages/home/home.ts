@@ -9,9 +9,11 @@ import { GlobalProvider } from '../../providers/global/global';
 })
 export class HomePage {
   tileInfoArr: Array<any> = [];
+  ageList: Array<any> = [];
   gameObject: any;
   constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
-    this.globalService.getGameDummy().subscribe(data => this.startHelper(data) , error => console.log(error));
+    this.globalService.getGameDummy().subscribe(data => this.gameSetupHelper(data) , error => console.log(error));
+    this.globalService.getAgeList().subscribe(data => this.ageListSetupHelper(data) , error => console.log(error));
   }
 
   ngOnInit() {
@@ -31,10 +33,14 @@ export class HomePage {
     ];
   }
   
-  startHelper(data) {
+  gameSetupHelper(data) {
     this.globalService.updateGameObject(data);
     this.globalService.gameCycle();
     this.gameObject = this.getGameObject();
+  };
+
+  ageListSetupHelper(data) {
+    this.ageList = data;
   };
 
   tileClicked (tileInfo) {

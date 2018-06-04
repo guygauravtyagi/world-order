@@ -32,9 +32,7 @@ export class BuildPage {
         this.pageTittle = this.province.name;
       }
     });
-  }
-
-  
+  }  
 
   buildHouseHelper(info) {
     this.houseList = info;

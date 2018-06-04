@@ -13,6 +13,18 @@
               {{gameObject.researchPoints | floor}}
           </span>
         </label>
+        <label>
+          Population - 
+          <span *ngIf= "gameObject && gameObject.researchPoints">
+              {{gameObject.population}}
+          </span>
+        </label>
+        <label>
+          Pollution - 
+          <span *ngIf= "gameObject && gameObject.researchPoints">
+              {{((gameObject.pollution * 100)/gameObject.pollutionLimit) | floor }}
+          </span>
+        </label>
     </div>
   </h4>
   <p *ngIf= "gameObject && gameObject.activeResearch">

@@ -39,9 +39,9 @@ export class CommonMethodsProvider {
       province.buildings[typeStr].push(houseObj);
     }
     province.populationLimit += houseObj.populationLimit;
-    province.pollution += houseObj.pollution
     gameObj.populationLimit += gameObj.populationLimit;
-    gameObj.pollution += gameObj.pollution
+    province.pollutionLimit += houseObj.pollutionLimit;
+    gameObj.pollutionLimit += gameObj.pollutionLimit;
     province.happiness += houseObj.happiness
     province.area -= houseObj.area;
     province.worth += (houseObj.cost + (houseObj.cost/gameObj.worther));

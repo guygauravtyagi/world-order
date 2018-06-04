@@ -71,12 +71,14 @@
     </div>
     <div *ngIf="houseList && houseList.length > 0 && openHousingList">
       <div *ngFor="let house of houseList; index as i; even as isEven; odd as isOdd">
-        <div>
-          <h5>{{house.name}}</h5>
-          <label>count : {{house.count}}</label>
+        <div *ngIf="house.age === gameObj.age">
+          <div>
+            <h5>{{house.name}}</h5>
+            <label>count : {{house.count}}</label>
+          </div>
+          <button (click)="buildHouse(house)">Build</button>
+          <button (click)="destroyHouse(house)">Destroy</button>
         </div>
-        <button (click)="buildHouse(house)">Build</button>
-        <button (click)="destroyHouse(house)">Destroy</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,19 @@
+[
+    {
+        "displayName":"Dark",
+        "age":0
+    },
+    {
+        "displayName":"Stone",
+        "age":1
+    },
+    {
+        "displayName":"Bronze",
+        "age":2
+    },
+    {
+        "displayName":"Iron",
+        "age":3
+    }
+    
+]

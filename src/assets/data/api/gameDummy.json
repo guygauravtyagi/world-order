@@ -1,11 +1,12 @@
 {
     "researchCount":0,
-    "researchPoints": 0.01,
+    "researchPoints": 10,
     "researchIncrement": 0.01,
     "worther":10,
-    "populationLimit":0,
     "population":0,
     "pollution": 0,
+    "pollutionLimit": 10000,
+    "age":0,
     "researchList": [
         {
             "name":"Fire",
@@ -61,6 +62,8 @@
             "id":"1",
             "name":"Meerut",
             "worth": 1000,
+            "populationLimit":0,
+            "pollutionLimit":0,
             "population": 0,
             "pollution": 0,
             "literacy": 0,
