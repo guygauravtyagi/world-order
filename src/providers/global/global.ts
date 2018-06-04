@@ -56,6 +56,13 @@ export class GlobalProvider {
 
   runInCycle() {
     this.gameObj.researchPoints += this.gameObj.researchIncrement;
+
+  };
+
+  updateDataFromProvinces () {
+    this.gameObj.provinces.forEach(element => {
+      
+    });
   };
 
   finishLaw() {

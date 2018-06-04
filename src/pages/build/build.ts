@@ -60,14 +60,27 @@ export class BuildPage {
 
   closeConstruction () {
     this.openConstruction = false;
+    this.hideEveryList();
     this.pageTittle = this.province.name;
   };
 
-  houseClicked (house) {
+  hideEveryList () {
+    this.openHousingList = false;
+  };
+
+  buildHouse (house) {
     this.common.incrementHouse(this.province, 'residence', house, this.gameObj);
+  };
+
+  destroyHouse (house) {
+    this.common.decrementHouse(this.province, 'residence', house, this.gameObj);
   };
 
   goBack () {
     this.common.goBack(this.previousPage);
+  };
+
+  destroyAll () {
+
   };
 }

@@ -1,13 +1,7 @@
 <ion-header>
-  <ion-navbar>    
-    <ion-title>
-      <span style="text-align: left">
-          <ion-icon name="arrow-back" (click)="goBack();"></ion-icon>
-      </span>
-      <span style="text-align: center">
-          {{pageTittle}}
-      </span>
-    </ion-title>
+  <ion-navbar>
+    <ion-icon style="float: left; padding: 0 6px; font-size: 2.5rem; font-weight: 500; color: #fff;" name="arrow-back" (click)="goBack();"></ion-icon>
+    <ion-title style="text-align: center; padding: 0 0;">{{pageTittle}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,9 +9,6 @@
 
   <div *ngIf="!openConstruction">
     <div>
-      <h5>
-        {{province.name}}
-      </h5>
       <h6>
         Sell for : $
         <span>{{province.worth | floor}}</span>
@@ -40,10 +31,30 @@
 
     </div>
 
+    <div class="cards">
+      <h4>
+        Residential Buildings
+      </h4>
+      <div class="container">
+        <div *ngFor="let houseDetails of province.buildings.residence; index as i; even as isEven; odd as isOdd">
+          <div>
+            <label>{{houseDetails.displayName}}</label>
+            <label>{{houseDetails.count}}</label>
+          </div>
+          <div>
+            <button (click)="destroyAll('resident')">
+              Destroy All
+            </button>
+          </div>
+        </div>
+        <div>
+          <button (click)="buildFacility('resident')">
+            Build More
+          </button>
+        </div>
+      </div>
+    </div>
     <div>
-      <button (click)="buildFacility('resident')">
-        Build Resident
-      </button>
       <button (click)="buildFacility('commercial')">
         Build Comercial
       </button>
@@ -60,7 +71,12 @@
     </div>
     <div *ngIf="houseList && houseList.length > 0 && openHousingList">
       <div *ngFor="let house of houseList; index as i; even as isEven; odd as isOdd">
-        <button (click)="houseClicked(house)">{{house.name}}</button>
+        <div>
+          <h5>{{house.name}}</h5>
+          <label>count : {{house.count}}</label>
+        </div>
+        <button (click)="buildHouse(house)">Build</button>
+        <button (click)="destroyHouse(house)">Destroy</button>
       </div>
     </div>
   </div>

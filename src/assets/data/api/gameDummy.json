@@ -3,6 +3,9 @@
     "researchPoints": 0.01,
     "researchIncrement": 0.01,
     "worther":10,
+    "populationLimit":0,
+    "population":0,
+    "pollution": 0,
     "researchList": [
         {
             "name":"Fire",
