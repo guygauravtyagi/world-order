@@ -1,0 +1,84 @@
+{
+    "age": 1,
+    "displayName": "Stone",
+    "houseList": [
+        {
+            "name": "cave",
+            "displayName": "Cave",
+            "cost": 2,
+            "area": 1,
+            "populationLimit": 4,
+            "pollution": 0,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        },
+        {
+            "name": "leafHouse",
+            "displayName": "Leaves House",
+            "cost": 2,
+            "area": 1,
+            "populationLimit": 4,
+            "pollution": 0,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        },
+        {
+            "name": "strawHouse",
+            "displayName": "Straw House",
+            "cost": 2,
+            "area": 1,
+            "populationLimit": 4,
+            "pollution": 0,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        },
+        {
+            "name": "stickHouse",
+            "displayName": "Stick House",
+            "cost": 2,
+            "area": 1,
+            "populationLimit": 4,
+            "pollution": 0,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        },
+        {
+            "name": "treeHouse",
+            "displayName": "Tree House",
+            "cost": 2,
+            "area": 1,
+            "populationLimit": 4,
+            "pollution": 0,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        },
+        {
+            "name": "mudHouse",
+            "displayName": "Mud House",
+            "cost": 2,
+            "area": 1,
+            "populationLimit": 4,
+            "pollution": 0,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        }
+    ],
+    "researchList":[
+
+    ],
+    "commercialBuildList":[
+
+    ],
+    "governmentBuildList":[
+
+    ],
+    "happinessBuildList":[
+
+    ]
+}

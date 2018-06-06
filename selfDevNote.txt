@@ -1,0 +1,15 @@
+Ionic cordova App creation steps.
+1. download ionic and cordova, follow the steps given on the site
+2. start your project and do stuff
+to release .apk file (ofcourse you will need android sdk, the best way is to install android studio and run it. It helps load all the dependecies you for android sdk)
+1. run : ionic cordova run android --prod --release
+once finished 
+2. if you have my-release-key.keystore then
+from folder where my-release-key.keystore
+run : jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore <path of unsigned .apk file with .apk file name> alias_name
+3. if not
+run : keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+this will generate a file, do not loose that file ever (if you want to continue updating your app);
+go to step 2
+4. go to android_sdk\build-tools\<version number>
+run : zipalign -v 4 <path of unsigned .apk file with .apk file name> <path of where you will generate new apk file and file name with .pk extention>

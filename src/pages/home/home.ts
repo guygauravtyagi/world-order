@@ -13,7 +13,6 @@ export class HomePage {
   gameObject: any;
   constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
     this.globalService.getGameDummy().subscribe(data => this.gameSetupHelper(data) , error => console.log(error));
-    this.globalService.getAgeList().subscribe(data => this.ageListSetupHelper(data) , error => console.log(error));
   }
 
   ngOnInit() {
@@ -37,10 +36,13 @@ export class HomePage {
     this.globalService.updateGameObject(data);
     this.globalService.gameCycle();
     this.gameObject = this.getGameObject();
+    if (this.gameObject && this.gameObject.age) {
+      this.globalService.getAgeData(1).subscribe(data => this.ageDataSetupHelper(data) , error => console.log(error));
+    }
   };
 
-  ageListSetupHelper(data) {
-    this.ageList = data;
+  ageDataSetupHelper(data) {
+
   };
 
   tileClicked (tileInfo) {

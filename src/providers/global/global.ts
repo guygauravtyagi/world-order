@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map'
 export class GlobalProvider {
   private gameObj: any;
   private CONST_GAME_CYCLE: Number = 1000;
+  private AGE_DATA:any;
 
   constructor(public http: HttpClient) {
 
@@ -88,11 +89,15 @@ export class GlobalProvider {
       });
   };
 
-  getAgeList() {
-    return this.http.get('./assets/data/api/ageListDummy.json')
+  getAgeDataObj () {
+    return this.AGE_DATA;
+  };
+
+  getAgeData(age) {
+    return this.http.get('./assets/data/api/dataDummyAge_'+ age +'.json')
       .map((response: Response) => {
-        const data = response;
-        return data;
+        this.AGE_DATA = response;
+        return this.AGE_DATA;
       });
   }
 
