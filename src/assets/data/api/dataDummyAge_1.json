@@ -70,15 +70,13 @@
         }
     ],
     "researchList":[
+        {
+            "name":"",
+            "id":"1001",
+            "status":true,
+            "bonus":[
 
-    ],
-    "commercialBuildList":[
-
-    ],
-    "governmentBuildList":[
-
-    ],
-    "happinessBuildList":[
-
+            ]
+        }
     ]
 }

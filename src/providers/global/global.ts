@@ -90,7 +90,8 @@ export class GlobalProvider {
   };
 
   getAgeDataObj () {
-    return this.AGE_DATA;
+    const ageData = this.AGE_DATA;
+    return ageData;
   };
 
   getAgeData(age) {
