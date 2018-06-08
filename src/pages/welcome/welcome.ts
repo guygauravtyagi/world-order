@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { LoginPage } from '../login/login';
+import { TabsPage } from '../tabs/tabs';
 import { SignupPage } from '../signup/signup';
 
 @IonicPage()
@@ -14,12 +14,12 @@ export class WelcomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  login(){
-    this.navCtrl.push(LoginPage);
-    }
-  
-    signup(){
+  login() {
+    this.navCtrl.push(TabsPage, {}, { animate: false });
+  }
+
+  signup() {
     this.navCtrl.push(SignupPage);
-    }
+  }
 
 }

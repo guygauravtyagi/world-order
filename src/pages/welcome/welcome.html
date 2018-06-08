@@ -1,22 +1,38 @@
 <ion-content padding id="welcome">
-  <img src="assets/imgs/logo.png" class="logo"/>
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <h1></h1>
+      <ion-col center text-center>
+        <img src="assets/imgs/logo.png" class="logo" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col center text-center>
+        <h2>World Order</h2>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid >
+  <ion-grid>
     <ion-row>
-      <ion-col center text-center>
-        <button ion-button full color="success" (click)="signup()">Sign up</button>
+      <ion-col>
+        <input class="input-field" placeholder="email/username" type="email">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <input class="input-field" placeholder="password" type="password">
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col center text-center>
-        <button ion-button full color="lightText" (click)="login()">Log in</button>
+        <button class="button-mine" ion-button full color="lightText" (click)="login()">Log in</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <button class="button-mine" ion-button full color="success" (click)="signup()">Sign up</button>
       </ion-col>
     </ion-row>
   </ion-grid>

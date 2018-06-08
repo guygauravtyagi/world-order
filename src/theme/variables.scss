@@ -34,12 +34,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:           #2A2C43,
-  secondary:        #677077,
-  lightprimary:    #B5B5B7,
+  primary:           #007799,
+  secondary:        #580404,
+  lightprimary:    #7eb6c5,
+  lightsecondary:        #704040,
   light:                 #f4f4f4,
   dark:                 #222,
-  energy:             #fad7b7
+  energy:             #599b90
 );
 
 $toolbar-background: color($colors, primary);
