@@ -5,28 +5,28 @@
 </ion-header>
 
 <ion-content padding>
-  <h4>
+  <h5>
     <div>
-        <label>
-          Research Points - 
+        <label (click)="headerIconClick('research')">
+          <ion-icon name="md-flask"></ion-icon>
           <span *ngIf= "gameObject && gameObject.researchPoints">
               {{gameObject.researchPoints | floor}}
           </span>
         </label>
         <label>
-          Population - 
+          <ion-icon name="md-people" (click)="headerIconClick('population')"></ion-icon>
           <span *ngIf= "gameObject && gameObject.researchPoints">
               {{gameObject.population}}
           </span>
         </label>
         <label>
-          Pollution - 
+          <ion-icon name="md-warning" (click)="headerIconClick('pollution')"></ion-icon>
           <span *ngIf= "gameObject && gameObject.researchPoints">
               {{((gameObject.pollution * 100)/gameObject.pollutionLimit) | floor }}
           </span>
         </label>
     </div>
-  </h4>
+  </h5>
   <p *ngIf= "gameObject && gameObject.activeResearch">
     {{gameObject.activeResearch.name}}
   </p>
@@ -34,3 +34,4 @@
     <tile [tileinfo] = "tileinfo" (click)="tileClicked(tileinfo)"></tile>
   </div>
 </ion-content>
+<info-popup [modalInfo] = "modalInfo"></info-popup>

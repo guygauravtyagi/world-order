@@ -1,0 +1,16 @@
+<div *ngIf="modalInfo.showPopup" id="myModal" class="modal">
+  <div class="modal-content card">
+    <span class="close" (click)="closePopup()">
+      <ion-icon name="md-close-circle"></ion-icon>
+    </span>
+    <div>
+      <ion-icon name="{{modalInfo.icon}}"></ion-icon>
+      <div class="container">
+        <h4>
+          <b>{{modalInfo.title}}</b>
+        </h4>
+        <p>{{modalInfo.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
