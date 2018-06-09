@@ -90,8 +90,7 @@ export class GlobalProvider {
   };
 
   getAgeDataObj () {
-    const ageData = this.AGE_DATA;
-    return ageData;
+    return this.AGE_DATA;
   };
 
   getAgeData(age) {
@@ -100,7 +99,12 @@ export class GlobalProvider {
         this.AGE_DATA = response;
         return this.AGE_DATA;
       });
-  }
+  };
+
+  setAgeData (value) {
+    this.AGE_DATA = value;
+    return this.AGE_DATA;
+  };
 
   getBuildHouseDummy() {
     return this.http.get('./assets/data/api/buildHouseDummy.json')

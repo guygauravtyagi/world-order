@@ -1,0 +1,29 @@
+<div *ngIf="modalList.showPopup" id="myModal" class="modal">
+  <div class="modal-content card">
+    <span class="close" (click)="closePopup()">
+      <ion-icon name="md-close-circle"></ion-icon>
+    </span>
+    <div>
+      <h6>
+        {{modalList.title}}
+      </h6>
+    </div>
+    <hr>
+    <div *ngIf="modalList.list && modalList.list.length > 0;else ageChange">
+      <ul class="">
+        <li *ngFor="let listInfo of modalList.list; index as i; even as isEven; odd as isOdd" class="">
+          <div class="">
+            <span class="">{{listInfo.name}}</span>
+            <br>
+            <span>{{modalList.description}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <ng-template #ageChange>
+      <button>
+        Go to next Age
+      </button>
+    </ng-template>
+  </div>
+</div>

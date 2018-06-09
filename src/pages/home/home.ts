@@ -12,6 +12,7 @@ export class HomePage {
   ageList: Array<any> = [];
   gameObject: any;
   modalInfo: any = {};
+  modalList:any = {};
   constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
     this.globalService.getGameDummy().subscribe(data => this.gameSetupHelper(data), error => console.log(error));
   }
@@ -37,9 +38,22 @@ export class HomePage {
     this.globalService.updateGameObject(data);
     this.globalService.gameCycle();
     this.gameObject = this.getGameObject();
-    if (this.gameObject && this.gameObject.age) {
-      this.globalService.getAgeData(1).subscribe(data => this.ageDataSetupHelper(data), error => console.log(error));
+    if (this.gameObject && (this.gameObject.age || this.gameObject.age === 0)) {
+      if (this.gameObject.age !== 0) {
+        this.incrementAge(this.gameObject.age);
+      } else {
+        this.globalService.setAgeData(
+          {
+            age: 0,
+            displayName: "Stone Age",
+            researchList:[]
+          });
+      }
     }
+  };
+
+  incrementAge (ageId) {
+    this.globalService.getAgeData(ageId).subscribe(data => this.ageDataSetupHelper(data), error => console.log(error));
   };
 
   ageDataSetupHelper(data) {
@@ -71,8 +85,14 @@ export class HomePage {
     this.modalInfo['growth'] = growth;
   };
 
+  fillModalList(title, list) {
+    this.modalList['showPopup'] = true;
+    this.modalList['title'] = title;
+    this.modalList['list'] = list;
+  };
+
   tileClicked(tileInfo) {
-    switch (tileInfo.tileName) {
+    switch (tileInfo.name) {
       case 'Research':
         this.doResearch();
         break;
@@ -86,6 +106,7 @@ export class HomePage {
       name: "Something Research",
       timeRemaining: 20,
     }
+    this.fillModalList("Research List", this.globalService.getAgeDataObj().researchList);
   };
 
   private getGameObject() {

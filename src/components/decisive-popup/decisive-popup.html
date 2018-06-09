@@ -1,0 +1,21 @@
+<div *ngIf="modalDecisive.showPopup" id="myModal" class="modal">
+  <div class="modal-content card">
+    <div>
+      <ion-icon name="{{modalDecisive.icon}}"></ion-icon>
+      <div class="container">
+        <h4>
+          <b>{{modalDecisive.title}}</b>
+        </h4>
+        <p>{{modalDecisive.description}}</p>
+      </div>
+    </div>
+    <div>
+      <button>Sure</button>
+      <button>
+        <span class="" (click)="closePopup()">
+          <ion-icon name="md-close-circle"></ion-icon>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
