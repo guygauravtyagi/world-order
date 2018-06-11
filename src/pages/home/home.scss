@@ -1,3 +1,10 @@
 page-home {
-
+    .tile-container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        column-count: 2;
+        height: 200vw;
+        padding: 10px;
+    }
 }

@@ -1,10 +1,19 @@
 tile {
     .tile-box{
-        background: #ffaacc;
-        margin: 0px;
+        background-color: aquamarine;
+        margin-bottom: 0px;
+        break-inside: avoid;
+        padding: 5px;
+        display: inline-flex;
+        width: 50%;
+        height: 50vw;
+        margin-bottom: 6px;
+        border-radius: 0px;
+        box-shadow: 0 10px 6px -6px #777;
+        flex-grow: 1;
         h6{
             height: 2em;
-
+            margin-bottom: -15px;
         }
         p{
             height: 1em;
