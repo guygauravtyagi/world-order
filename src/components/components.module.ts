@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 import { TileComponent } from './tile/tile';
 import { InfoPopupComponent } from './info-popup/info-popup';
 

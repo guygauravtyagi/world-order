@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GlobalProvider } from '../../providers/global/global';
 
@@ -8,28 +8,49 @@ import { GlobalProvider } from '../../providers/global/global';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('tileComponent') tileComponent: any;
   tileInfoArr: Array<any> = [];
   ageList: Array<any> = [];
   gameObject: any;
   modalInfo: any = {};
-  modalList:any = {};
+  modalList: any = {};
   constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
     this.globalService.getGameDummy().subscribe(data => this.gameSetupHelper(data), error => console.log(error));
   }
 
   ngOnInit() {
+
+  }
+
+  fillTiles() {
     this.tileInfoArr = [
       {
-        name: 'Research'
+        name: 'Research',
+        progress: 1,
+        description: "Description Here",
+        progressSpeed: this.gameObject.researchProgress,
+        allowNext: true,
       },
       {
-        name: 'Tile Two'
+        name: 'Wonders',
+        progress: 0,
+        description: "Description Here",
+        progressSpeed: '',
+        allowNext: true,
       },
       {
-        name: 'Tile Three'
+        name: 'Law',
+        progress: 0,
+        description: "Description Here",
+        progressSpeed: '',
+        allowNext: true,
       },
       {
-        name: 'Tile Four'
+        name: 'Neighbour Provinces',
+        progress: 0,
+        description: "Description Here",
+        progressSpeed: '',
+        allowNext: true,
       },
     ];
   }
@@ -38,6 +59,7 @@ export class HomePage {
     this.globalService.updateGameObject(data);
     this.globalService.gameCycle();
     this.gameObject = this.getGameObject();
+    this.fillTiles();
     if (this.gameObject && (this.gameObject.age || this.gameObject.age === 0)) {
       if (this.gameObject.age !== 0) {
         this.incrementAge(this.gameObject.age);
@@ -46,19 +68,20 @@ export class HomePage {
           {
             age: 0,
             displayName: "Stone Age",
-            researchList:[]
+            researchList: []
           });
       }
     }
   };
 
-  incrementAge (ageId) {
+  incrementAge(ageId) {
     this.globalService.getAgeData(ageId).subscribe(data => this.ageDataSetupHelper(data), error => console.log(error));
   };
 
   ageDataSetupHelper(data) {
     this.modalList.showPopup = false;
     this.gameObject.researchList = data.researchList;
+    this.gameObject.ageDisplayName = data.displayName;
   };
 
   headerIconClick(headerName) {
@@ -95,7 +118,8 @@ export class HomePage {
   tileClicked(tileInfo) {
     switch (tileInfo.name) {
       case 'Research':
-        this.doResearch();
+        if (this.tileInfoArr[0].allowNext)
+          this.doResearch();
         break;
       default:
         break;
@@ -104,6 +128,7 @@ export class HomePage {
 
   listItemClicked(stuff) {
     if (stuff.data === "age") {
+      this.tileComponent.move();
       this.incrementAge(this.gameObject.age + 1);
     } else {
 
@@ -111,10 +136,6 @@ export class HomePage {
   };
 
   doResearch() {
-    this.gameObject['activeResearch'] = {
-      name: "Something Research",
-      timeRemaining: 20,
-    }
     this.fillModalList("Research List", this.globalService.getAgeDataObj().researchList);
   };
 

@@ -7,7 +7,9 @@
     "pollution": 0,
     "pollutionLimit": 10000,
     "age":0,
+    "ageDisplayName":"Dark Age",
     "researchList": [],
+    "researchProgress": 1,
     "buildPoints":0.01,
     "buildIncrement":0.01,
     "provinces": [

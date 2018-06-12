@@ -6,27 +6,28 @@ import { Component, Input } from '@angular/core';
 })
 export class TileComponent {
   @Input('tileinfo') tileinfo;
-  text: string;
 
   constructor() {
 
   };
 
-  ngOnInit() {    
-    this.text = this.tileinfo.name;
+  ngOnInit() {
+
   };
 
   move() {
-    var elem = document.getElementById("myBar");   
-    var width = 10;
-    var id = setInterval(frame, 10);
+    let elem = document.getElementById("myBar");
+    let id = setInterval(frame, this.tileinfo.progressSpeed * 1000);
+    let val = this.tileinfo;
+    val.allowNext = false;
     function frame() {
-      if (width >= 100) {
+      if (val.progress >= 100) {
         clearInterval(id);
+        val.allowNext = true;
+        val.progress = 0;
       } else {
-        width++; 
-        elem.style.width = width + '%'; 
-        elem.innerHTML = width * 1  + '%';
+        val.progress++;
+        elem.style.width = val.progress + '%';
       }
     }
   }

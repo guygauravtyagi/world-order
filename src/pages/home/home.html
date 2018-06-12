@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title *ngIf="gameObject && gameObject.ageDisplayName">{{gameObject.ageDisplayName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -32,12 +32,9 @@
     </div>
   </div>
   <div padding style="padding-top: 0px">
-    <p *ngIf="gameObject && gameObject.activeResearch">
-      {{gameObject.activeResearch.name}}
-    </p>
     <div class="tile-container-container">
       <div class="tile-container" *ngFor="let tileinfo of tileInfoArr;">
-        <tile [tileinfo]="tileinfo" (click)="tileClicked(tileinfo)"></tile>
+        <tile [tileinfo]="tileinfo" (click)="tileClicked(tileinfo)" #tileComponent></tile>
       </div>
     </div>
   </div>
