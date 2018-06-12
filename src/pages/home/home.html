@@ -4,35 +4,43 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h5>
-    <div>
-        <label (click)="headerIconClick('research')">
-          <ion-icon name="md-flask"></ion-icon>
-          <span *ngIf= "gameObject && gameObject.researchPoints">
-              {{gameObject.researchPoints | floor}}
-          </span>
-        </label>
-        <label>
-          <ion-icon name="md-people" (click)="headerIconClick('population')"></ion-icon>
-          <span *ngIf= "gameObject && gameObject.researchPoints">
-              {{gameObject.population}}
-          </span>
-        </label>
-        <label>
-          <ion-icon name="md-warning" (click)="headerIconClick('pollution')"></ion-icon>
-          <span *ngIf= "gameObject && gameObject.researchPoints">
-              {{((gameObject.pollution * 100)/gameObject.pollutionLimit) | floor }}
-          </span>
-        </label>
+<ion-content>
+  <div class="heading-home">
+    <div class="heading-value">
+      <label (click)="headerIconClick('research')">
+        <ion-icon name="md-flask"></ion-icon>
+      </label>
+      <span class="heading-text" *ngIf="gameObject && gameObject.researchPoints">
+        {{gameObject.researchPoints | floor | numberFormatter}}
+      </span>
     </div>
-  </h5>
-  <p *ngIf= "gameObject && gameObject.activeResearch">
-    {{gameObject.activeResearch.name}}
-  </p>
-  <div clas="tile-container" *ngFor="let tileinfo of tileInfoArr;">
-    <tile [tileinfo] = "tileinfo" (click)="tileClicked(tileinfo)"></tile>
+    <div class="heading-value">
+      <label>
+        <ion-icon name="md-people" (click)="headerIconClick('population')"></ion-icon>
+      </label>
+      <span class="heading-text" *ngIf="gameObject && gameObject.researchPoints">
+        {{gameObject.population | numberFormatter}}
+      </span>
+    </div>
+    <div class="heading-value">
+      <label>
+        <ion-icon name="md-warning" (click)="headerIconClick('pollution')"></ion-icon>
+      </label>
+      <span class="heading-text" *ngIf="gameObject && gameObject.researchPoints">
+        {{((gameObject.pollution * 100)/gameObject.pollutionLimit) | floor | numberFormatter }}
+      </span>
+    </div>
+  </div>
+  <div padding style="padding-top: 0px">
+    <p *ngIf="gameObject && gameObject.activeResearch">
+      {{gameObject.activeResearch.name}}
+    </p>
+    <div class="tile-container-container">
+      <div class="tile-container" *ngFor="let tileinfo of tileInfoArr;">
+        <tile [tileinfo]="tileinfo" (click)="tileClicked(tileinfo)"></tile>
+      </div>
+    </div>
   </div>
 </ion-content>
-<info-popup [modalInfo] = "modalInfo"></info-popup>
-<list-popup [modalList] = "modalList"></list-popup>
+<info-popup [modalInfo]="modalInfo"></info-popup>
+<list-popup [modalList]="modalList"></list-popup>

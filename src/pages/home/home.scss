@@ -1,10 +1,51 @@
 page-home {
-    .tile-container{
+    .tile-container-container{
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        flex-direction: row;
         flex-wrap: wrap;
-        column-count: 2;
-        height: 200vw;
-        padding: 10px;
+    }
+    .tile-container{
+        width: 46%;
+        margin-left: 1%;
+        margin-right: 1%;
+        flex-grow: 1;
+    }
+    @media (max-width: 300px) {
+        .tile-container-container {
+          display: block;
+          .tile-container {
+            width: 100%;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+    .heading-home {
+        display: table;
+        width: 100%;
+        height: 3rem;
+        padding: 2px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .heading-value{
+        display: table-cell;
+        width: 33.3%;
+        padding: 3px;
+        border: 1px solid #999;
+        background-color: #002842;
+        label{
+            font-size: 1.6rem;
+            text-shadow: 0 0 3px #999;
+            color: #ffffff;
+        }
+        .heading-text{
+            display: inline-block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            letter-spacing: 0em;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: azure;
+        }
     }
 }

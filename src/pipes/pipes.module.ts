@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { FloorPipe } from './floor/floor';
+import { NumberFormatterPipe } from './number-formatter/number-formatter';
 @NgModule({
-	declarations: [FloorPipe],
+	declarations: [FloorPipe,
+    NumberFormatterPipe],
 	imports: [],
-	exports: [FloorPipe]
+	exports: [FloorPipe,
+    NumberFormatterPipe]
 })
 export class PipesModule {}
