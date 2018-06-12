@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { TileComponent } from './tile/tile';
 import { InfoPopupComponent } from './info-popup/info-popup';
 
-import { IonicModule } from 'ionic-angular';
 import { ListPopupComponent } from './list-popup/list-popup';
 import { DecisivePopupComponent } from './decisive-popup/decisive-popup';
 @NgModule({

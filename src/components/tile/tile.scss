@@ -20,5 +20,20 @@ tile {
         p{
             height: 1em;
         }
+        footer{
+            margin-top: 50%;
+        }
+    }
+    #myProgress {
+        width: 100%;
+        border-radius: 2px;
+    }      
+    #myBar {
+    width: 10%;
+    height: 8px;
+    background-color: #115c11;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
     }
 }

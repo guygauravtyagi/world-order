@@ -57,7 +57,8 @@ export class HomePage {
   };
 
   ageDataSetupHelper(data) {
-
+    this.modalList.showPopup = false;
+    this.gameObject.researchList = data.researchList;
   };
 
   headerIconClick(headerName) {
@@ -99,7 +100,15 @@ export class HomePage {
       default:
         break;
     }
-  }
+  };
+
+  listItemClicked(stuff) {
+    if (stuff.data === "age") {
+      this.incrementAge(this.gameObject.age + 1);
+    } else {
+
+    }
+  };
 
   doResearch() {
     this.gameObject['activeResearch'] = {

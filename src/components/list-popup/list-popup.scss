@@ -35,16 +35,15 @@ list-popup {
         width: 80%; /* Could be more or less, depending on screen size */
         height: 70%;
     }
-    
-    /* The Close Button */
+
     .close {
-        color: black;
+        color: #b41010;
         position: relative;
         margin-top: -36px;
         margin-right: -34px;
         float: right;
         font-size: 28px;
-        font-weight: bold;
+        font-weight: bolder;
     }
     
     .close:hover,
@@ -68,5 +67,20 @@ list-popup {
     
     .container {
         padding: 2px 16px;
+    }
+
+    .age-Change{
+        width: 100%;
+        text-align: center;
+        h1{
+            text-align: center;
+        }
+    }
+
+    .new-age-icon{
+        font-size: 10rem;
+        text-align: center;
+        color: #04b8ff;
+        cursor: pointer;
     }
 }

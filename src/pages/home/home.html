@@ -43,4 +43,4 @@
   </div>
 </ion-content>
 <info-popup [modalInfo]="modalInfo"></info-popup>
-<list-popup [modalList]="modalList"></list-popup>
+<list-popup (listItemClicked) = "listItemClicked($event)" [modalList]="modalList"></list-popup>

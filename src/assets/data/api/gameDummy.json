@@ -7,20 +7,7 @@
     "pollution": 0,
     "pollutionLimit": 10000,
     "age":0,
-    "researchList": [
-        {
-            "name":"Fire",
-            "id":"0",
-            "isDone":false,
-            "pointRequired": 10,
-            "boosts":[
-                "",
-                "",
-                "",
-                ""
-            ]
-        }
-    ],
+    "researchList": [],
     "buildPoints":0.01,
     "buildIncrement":0.01,
     "provinces": [
