@@ -1,6 +1,8 @@
 {
     "age": 1,
     "displayName": "Stone Age",
+    "nextAgeDisplayName": "Bronze Age",
+    "ageResearchCost": 10,
     "houseList": [
         {
             "name": "cave",
@@ -69,15 +71,14 @@
             "age": 1
         }
     ],
-    "researchList":[
+    "researchList": [
         {
-            "name":"Fire",
-            "id":"1001",
-            "status":true,
+            "name": "Fire",
+            "id": "1001",
+            "costRPoints": 10,
+            "status": true,
             "description": "",
-            "bonus":[
-
-            ]
+            "bonus": []
         }
     ]
 }

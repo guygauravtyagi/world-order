@@ -17,7 +17,7 @@ export class ProvincesPage {
   }
 
   tileClicked (param) {
-    this.navCtrl.setRoot(BuildPage, {id:param.id,page:'province'});
+    this.navCtrl.push(BuildPage, {id:param.id,page:'province'});
   };
 
 }

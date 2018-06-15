@@ -21,6 +21,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProvincesPage } from '../pages/provinces/provinces';
 import { BuildPageModule } from '../pages/build/build.module';
 import { CommonMethodsProvider } from '../providers/common-methods/common-methods';
+import { ResearchServiceProvider } from '../providers/research-service/research-service';
+import { BuildServiceProvider } from '../providers/build-service/build-service';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { CommonMethodsProvider } from '../providers/common-methods/common-method
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalProvider,
-    CommonMethodsProvider
+    CommonMethodsProvider,
+    ResearchServiceProvider,
+    BuildServiceProvider
   ]
 })
 export class AppModule {}

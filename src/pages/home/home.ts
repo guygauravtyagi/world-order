@@ -1,6 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
+
 import { GlobalProvider } from '../../providers/global/global';
+import { ResearchServiceProvider } from '../../providers/research-service/research-service';
+import { CommonMethodsProvider } from '../../providers/common-methods/common-methods';
 
 
 @Component({
@@ -14,7 +17,7 @@ export class HomePage {
   gameObject: any;
   modalInfo: any = {};
   modalList: any = {};
-  constructor(public navCtrl: NavController, private globalService: GlobalProvider) {
+  constructor(public navCtrl: NavController, private globalService: GlobalProvider, private researchService: ResearchServiceProvider, private commonService: CommonMethodsProvider) {
     this.globalService.getGameDummy().subscribe(data => this.gameSetupHelper(data), error => console.log(error));
   }
 
@@ -58,18 +61,21 @@ export class HomePage {
   gameSetupHelper(data) {
     this.globalService.updateGameObject(data);
     this.globalService.gameCycle();
-    this.gameObject = this.getGameObject();
+    this.gameObject = this.globalService.getGameObject();
     this.fillTiles();
     if (this.gameObject && (this.gameObject.age || this.gameObject.age === 0)) {
       if (this.gameObject.age !== 0) {
         this.incrementAge(this.gameObject.age);
       } else {
-        this.globalService.setAgeData(
-          {
-            age: 0,
-            displayName: "Stone Age",
-            researchList: []
-          });
+        let data = {
+          age: 0,
+          displayName: "Dark Age",
+          researchList: [],
+          nextAgeDisplayName: "Stone Age",
+          ageResearchCost: 10,
+        };
+        this.globalService.setAgeData(data);
+        this.updateAgeDetails(data);
       }
     }
   };
@@ -80,46 +86,37 @@ export class HomePage {
 
   ageDataSetupHelper(data) {
     this.modalList.showPopup = false;
+    this.updateAgeDetails(data);
+  };
+
+  updateAgeDetails(data) {
     this.gameObject.researchList = data.researchList;
     this.gameObject.ageDisplayName = data.displayName;
-  };
+    this.gameObject.nextAgeDisplayName = data.nextAgeDisplayName;
+    this.gameObject.ageResearchCost = data.ageResearchCost;
+  }
 
   headerIconClick(headerName) {
     switch (headerName) {
       case 'research':
-        this.fillModalInfo('md-flask', 'Research', this.gameObject.researchPoints, 'This is research Tab', this.gameObject.researchIncrement);
+        this.modalInfo = this.commonService.generateModalInfo('md-flask', 'Research', this.gameObject.researchPoints, 'This is research Tab', this.gameObject.researchIncrement);
         break;
       case 'population':
-        this.fillModalInfo('md-people', 'Population', this.gameObject.population, 'This is population Tab', this.gameObject.researchIncrement);
+        this.modalInfo = this.commonService.generateModalInfo('md-people', 'Population', this.gameObject.population, 'This is population Tab', this.gameObject.researchIncrement);
         break;
       case 'pollution':
-        this.fillModalInfo('md-warning', 'Pollution', this.gameObject.researchPoints, 'This is pollution Tab', this.gameObject.researchIncrement);
+        this.modalInfo = this.commonService.generateModalInfo('md-warning', 'Pollution', this.gameObject.researchPoints, 'This is pollution Tab', this.gameObject.researchIncrement);
         break;
       default:
         break;
     }
   };
 
-  fillModalInfo(icon, title, value, description, growth) {
-    this.modalInfo['showPopup'] = true;
-    this.modalInfo['icon'] = icon;
-    this.modalInfo['title'] = title;
-    this.modalInfo['value'] = value;
-    this.modalInfo['description'] = description;
-    this.modalInfo['growth'] = growth;
-  };
-
-  fillModalList(title, list) {
-    this.modalList['showPopup'] = true;
-    this.modalList['title'] = title;
-    this.modalList['list'] = list;
-  };
-
   tileClicked(tileInfo) {
     switch (tileInfo.name) {
       case 'Research':
         if (this.tileInfoArr[0].allowNext)
-          this.doResearch();
+        this.modalList = this.commonService.generateModalList("Research List", this.globalService.getAgeDataObj().researchList);
         break;
       default:
         break;
@@ -128,19 +125,14 @@ export class HomePage {
 
   listItemClicked(stuff) {
     if (stuff.data === "age") {
-      this.tileComponent.move();
-      this.incrementAge(this.gameObject.age + 1);
+      this.tileComponent.move(this.gameObject.nextAgeDisplayName);
+      this.gameObject.age++;
+      this.gameObject.researchPoints -= this.gameObject.ageResearchCost;
+      this.incrementAge(this.gameObject.age);
     } else {
-
+      this.tileComponent.move(stuff.data.displayName);
+      this.gameObject = this.researchService.doResearch(this.gameObject);
     }
-  };
-
-  doResearch() {
-    this.fillModalList("Research List", this.globalService.getAgeDataObj().researchList);
-  };
-
-  private getGameObject() {
-    return this.globalService.getGameObject();
   };
 
 }

@@ -12,10 +12,13 @@ import { SignupPage } from '../signup/signup';
 export class WelcomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    //comment this when releasing
+    this.navCtrl.push(TabsPage, {}, { animate: false });
   }
 
   login() {
-    this.navCtrl.push(TabsPage, {}, { animate: false });
+    //uncomment this when releasing
+    //this.navCtrl.push(TabsPage, {}, { animate: false });
   }
 
   signup() {

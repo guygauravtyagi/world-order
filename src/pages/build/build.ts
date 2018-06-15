@@ -3,8 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { GlobalProvider } from '../../providers/global/global';
 import { CommonMethodsProvider } from '../../providers/common-methods/common-methods';
-
-//import { ProvincesPage } from '../provinces/provinces';
+import { BuildServiceProvider } from '../../providers/build-service/build-service';
 
 @IonicPage()
 @Component({
@@ -21,8 +20,8 @@ export class BuildPage {
   openConstruction:boolean = false;
   previousPage:String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private globalService: GlobalProvider, private common:CommonMethodsProvider) {
-    this.globalService.getBuildHouseDummy().subscribe(data => this.buildHouseHelper(data), error => console.log(error));
+  constructor(public navCtrl: NavController, public navParams: NavParams, private globalService: GlobalProvider, private buildService: BuildServiceProvider, private commonMethods: CommonMethodsProvider) {
+    this.houseList = this.globalService.getAgeDataObj().houseList;
     this.id = navParams.get('id');
     this.previousPage =  navParams.get('page');
     this.gameObj = this.globalService.getGameObject();
@@ -67,15 +66,11 @@ export class BuildPage {
   };
 
   buildHouse (house) {
-    this.common.incrementHouse(this.province, 'residence', house, this.gameObj);
+    this.buildService.incrementHouse(this.province, 'residence', house, this.gameObj);
   };
 
   destroyHouse (house) {
-    this.common.decrementHouse(this.province, 'residence', house, this.gameObj);
-  };
-
-  goBack () {
-    this.common.goBack(this.previousPage);
+    this.buildService.decrementHouse(this.province, 'residence', house, this.gameObj);
   };
 
   destroyAll () {

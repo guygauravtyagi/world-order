@@ -9,7 +9,7 @@
     "age":0,
     "ageDisplayName":"Dark Age",
     "researchList": [],
-    "researchProgress": 1,
+    "researchProgress": 0,
     "buildPoints":0.01,
     "buildIncrement":0.01,
     "provinces": [
