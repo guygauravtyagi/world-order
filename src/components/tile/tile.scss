@@ -21,18 +21,22 @@ tile {
             height: 1em;
         }
         footer{
-            margin-top: 50%;
+            margin-top: 55%;
+            margin-left: -4%;
+            margin-right: -3.5%;
         }
     }
-    #myProgress {
+    .myProgress {
         width: 100%;
-        border-radius: 2px;
+        border-radius: 0px;
+        background: #e6ebec;
+        border: 1px solid #050320;
     }      
-    #myBar {
+    .myBar {
     width: 0%;
     height: 8px;
-    background-color: #115c11;
-    border-radius: 4px;
+    background-color: #050320;
+    border-radius: 0px;
     text-align: center;
     color: white;
     }

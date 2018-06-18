@@ -73,7 +73,35 @@
     ],
     "researchList": [
         {
-            "name": "Fire",
+            "displayName": "Fire",
+            "name": "fire",
+            "id": "1001",
+            "costRPoints": 10,
+            "status": true,
+            "description": "lorem ipsum tabda tabda",
+            "bonus": []
+        },
+        {
+            "displayName": "Fire",
+            "name": "fire",
+            "id": "1001",
+            "costRPoints": 10,
+            "status": true,
+            "description": "",
+            "bonus": []
+        },
+        {
+            "displayName": "Fire",
+            "name": "fire",
+            "id": "1001",
+            "costRPoints": 10,
+            "status": true,
+            "description": "",
+            "bonus": []
+        },
+        {
+            "displayName": "Fire",
+            "name": "fire",
             "id": "1001",
             "costRPoints": 10,
             "status": true,

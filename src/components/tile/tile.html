@@ -1,15 +1,15 @@
 <div class="tile-box">
   <div class="tile-inside">
     <h6>
-      {{tileinfo.name}}
+      {{tileinfo.displayName}}
     </h6>
     <p>
       {{tileinfo.description}}
     </p>
   </div>
   <footer *ngIf="tileinfo.progress !== 0">
-    <div id="myProgress">
-      <div id="myBar"></div>
+    <div class="myProgress" id="{{ 'tileProgress-' + tileinfo.name }}">
+      <div class="myBar" id="{{ 'tileBar-' + tileinfo.name }}"></div>
     </div>
   </footer>
 </div>

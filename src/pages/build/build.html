@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title style="text-align: center; padding: 0 0;">{{pageTittle}}</ion-title>
+    <ion-title>{{pageTittle}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,22 +12,30 @@
         Sell for : $
         <span>{{province.worth | floor}}</span>
       </h6>
-
       <label>
         Population -
         <span>{{province.population}}</span>
       </label>
-
       <label>
         Pollution -
         <span>{{province.pollution}}</span>
       </label>
-
       <label>
         Literacy -
         <span>{{province.literacy}}</span>
       </label>
-
+      <label>
+        Happiness -
+        <span>{{province.happiness}}</span>
+      </label>
+      <label>
+        Stability -
+        <span>{{province.stability}}</span>
+      </label>
+      <label>
+        Buildable Area -
+        <span>{{province.area}}</span>
+      </label>
     </div>
 
     <div class="cards">
@@ -54,12 +62,50 @@
       </div>
     </div>
     <div>
-      <button (click)="buildFacility('commercial')">
-        Build Comercial
-      </button>
-      <button (click)="buildFacility('research')">
-        Build Research
-      </button>
+      <h4>
+        Commercial Buildings
+      </h4>
+      <div class="container">
+        <div *ngFor="let houseDetails of province.buildings.residence; index as i; even as isEven; odd as isOdd">
+          <div>
+            <label>{{houseDetails.displayName}}</label>
+            <label>{{houseDetails.count}}</label>
+          </div>
+          <div>
+            <button (click)="destroyAll('commercial')">
+              Destroy All
+            </button>
+          </div>
+        </div>
+        <div>
+          <button (click)="buildFacility('commercial')">
+            Build More
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4>
+        Research Buildings
+      </h4>
+      <div class="container">
+        <div *ngFor="let houseDetails of province.buildings.residence; index as i; even as isEven; odd as isOdd">
+          <div>
+            <label>{{houseDetails.displayName}}</label>
+            <label>{{houseDetails.count}}</label>
+          </div>
+          <div>
+            <button (click)="destroyAll('research')">
+              Destroy All
+            </button>
+          </div>
+        </div>
+        <div>
+          <button (click)="buildFacility('research')">
+            Build More
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   <div *ngIf="openConstruction">

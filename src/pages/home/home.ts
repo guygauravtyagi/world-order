@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChildren } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { GlobalProvider } from '../../providers/global/global';
@@ -11,7 +11,7 @@ import { CommonMethodsProvider } from '../../providers/common-methods/common-met
   templateUrl: 'home.html'
 })
 export class HomePage {
-  @ViewChild('tileComponent') tileComponent: any;
+  @ViewChildren('tileComponent') tileComponent: any;
   tileInfoArr: Array<any> = [];
   ageList: Array<any> = [];
   gameObject: any;
@@ -28,29 +28,33 @@ export class HomePage {
   fillTiles() {
     this.tileInfoArr = [
       {
-        name: 'Research',
+        displayName:'Research',
+        name: 'research',
         progress: 1,
         description: "Description Here",
         progressSpeed: this.gameObject.researchProgress,
         allowNext: true,
       },
       {
-        name: 'Wonders',
-        progress: 0,
+        displayName:'Wonders',
+        name: 'wonders',
+        progress: 1,
         description: "Description Here",
         progressSpeed: '',
         allowNext: true,
       },
       {
-        name: 'Law',
-        progress: 0,
+        displayName:'Law',
+        name: 'law',
+        progress: 1,
         description: "Description Here",
         progressSpeed: '',
         allowNext: true,
       },
       {
-        name: 'Neighbour Provinces',
-        progress: 0,
+        displayName:'Neighbours',
+        name: 'neighbours',
+        progress: 1,
         description: "Description Here",
         progressSpeed: '',
         allowNext: true,
@@ -114,7 +118,7 @@ export class HomePage {
 
   tileClicked(tileInfo) {
     switch (tileInfo.name) {
-      case 'Research':
+      case 'research':
         if (this.tileInfoArr[0].allowNext)
         this.modalList = this.commonService.generateModalList("Research List", this.globalService.getAgeDataObj().researchList);
         break;
@@ -124,15 +128,19 @@ export class HomePage {
   };
 
   listItemClicked(stuff) {
-    if (stuff.data === "age") {
-      this.tileComponent.move(this.gameObject.nextAgeDisplayName);
-      this.gameObject.age++;
-      this.gameObject.researchPoints -= this.gameObject.ageResearchCost;
-      this.incrementAge(this.gameObject.age);
-    } else {
-      this.tileComponent.move(stuff.data.displayName);
-      this.gameObject = this.researchService.doResearch(this.gameObject);
-    }
+    this.tileComponent._results.forEach(element => {
+      if (element.tileinfo.name === "research") {
+        if (stuff.data === "age") {
+          element.move(this.gameObject.nextAgeDisplayName);
+          this.gameObject.age++;
+          this.gameObject.researchPoints -= this.gameObject.ageResearchCost;
+          this.incrementAge(this.gameObject.age);
+        } else {
+          element.move(stuff.data.name);
+          this.gameObject = this.researchService.doResearch(this.gameObject);
+        }
+      }
+    });
   };
 
 }

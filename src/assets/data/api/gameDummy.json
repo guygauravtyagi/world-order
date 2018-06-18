@@ -24,6 +24,7 @@
             "employed":0,
             "happiness":100,
             "stability":100,
+            "totalArea":20000,
             "area": 10000,
             "buildings": {
                 "commercial":[],
@@ -59,6 +60,7 @@
             "employed":0,
             "happiness":100,
             "stability":100,
+            "totalArea":20000,
             "area": 10000,
             "buildings": {
                 "commercial":[],
