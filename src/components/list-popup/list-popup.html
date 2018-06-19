@@ -10,12 +10,20 @@
     </div>
     <div class="overFlow-list" *ngIf="modalList.list && modalList.list.length > 0;else ageChange">
       <ul class="list">
-        <li class="item" (click)="startStuff(listInfo); closePopup();" *ngFor="let listInfo of modalList.list; index as i; even as isEven; odd as isOdd"
+        <li class="item" *ngFor="let listInfo of modalList.list; index as i; even as isEven; odd as isOdd"
           class="">
-          <h6 class="">{{listInfo.name}}</h6>
-          <div class="inner-list-des">
+          <div>
+            <p class="title-item" (click)="startStuff(listInfo); closePopup();">
+              {{listInfo.name}}
+            </p>
+            <span class="list-icon" style="float: right;">
+              <ion-icon *ngIf="listInfo.openDes" (click)="opendesCription(false, listInfo);" name="arrow-dropup-circle"></ion-icon>
+              <ion-icon *ngIf="!listInfo.openDes" (click)="opendesCription(true, listInfo);" name="arrow-dropdown-circle"></ion-icon>
+            </span>
+          </div>
+          <div *ngIf="listInfo.openDes" [@slideInOut] class="inner-list-des">
             <p>{{listInfo.description}}</p>
-            <button>
+            <button (click)="startStuff(listInfo); closePopup();">
               Start
             </button>
           </div>

@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { IonicModule } from 'ionic-angular';
 import { TileComponent } from './tile/tile';
 import { InfoPopupComponent } from './info-popup/info-popup';
@@ -11,7 +13,8 @@ import { DecisivePopupComponent } from './decisive-popup/decisive-popup';
     ListPopupComponent,
     DecisivePopupComponent],
 	imports: [
-    	IonicModule
+        IonicModule,
+        BrowserAnimationsModule
 	],
 	exports: [TileComponent,
     InfoPopupComponent,
