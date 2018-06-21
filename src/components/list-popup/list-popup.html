@@ -13,17 +13,20 @@
         <li class="item" *ngFor="let listInfo of modalList.list; index as i; even as isEven; odd as isOdd"
           class="">
           <div>
-            <p class="title-item" (click)="startStuff(listInfo); closePopup();">
+            <p class="title-item" (click)="startStuff(listInfo);">
               {{listInfo.name}}
             </p>
+            <p *ngIf="researchDisabledCheck(listInfo)" class="error-message">
+              *you don't have enough research points.
+            </p>
             <span class="list-icon" style="float: right;">
-              <ion-icon *ngIf="listInfo.openDes" (click)="opendesCription(false, listInfo);" name="arrow-dropup-circle"></ion-icon>
-              <ion-icon *ngIf="!listInfo.openDes" (click)="opendesCription(true, listInfo);" name="arrow-dropdown-circle"></ion-icon>
+              <ion-icon *ngIf="listInfo.openDes" (click)="openDescription(false, listInfo);" name="arrow-dropup-circle"></ion-icon>
+              <ion-icon *ngIf="!listInfo.openDes" (click)="openDescription(true, listInfo);" name="arrow-dropdown-circle"></ion-icon>
             </span>
           </div>
           <div *ngIf="listInfo.openDes" [@slideInOut] class="inner-list-des">
             <p>{{listInfo.description}}</p>
-            <button (click)="startStuff(listInfo); closePopup();">
+            <button [disabled]="researchDisabledCheck(listInfo)" (click)="startStuff(listInfo);">
               Start
             </button>
           </div>

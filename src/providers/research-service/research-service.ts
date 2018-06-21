@@ -8,8 +8,8 @@ export class ResearchServiceProvider {
 
   };
 
-  doResearch (gameObj) {
-    
+  doResearch (gameObj, researchObj) {
+    gameObj.researchPoints -= researchObj.costRPoints;
     return gameObj;
   };
 

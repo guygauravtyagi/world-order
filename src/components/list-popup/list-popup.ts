@@ -18,6 +18,7 @@ import { trigger, transition, animate, style } from '@angular/animations';
 })
 export class ListPopupComponent {
   @Input('modalList') modalList;
+  @Input('gameObject') gameObject;
   @Output() listItemClicked = new EventEmitter();
 
   text: string;
@@ -27,12 +28,28 @@ export class ListPopupComponent {
   };
 
   startStuff(listItem): void {
-    this.listItemClicked.emit({
-      data: listItem
-    });
+    if (listItem === 'age') {
+      this.listItemClicked.emit({
+        data: listItem
+      });
+      return;
+    } else if(!this.researchDisabledCheck(listItem)) {
+      this.closePopup();
+      this.listItemClicked.emit({
+        data: listItem
+      });
+    }
   };
 
-  opendesCription(flag, obj) {
+  researchDisabledCheck (item) {
+    if (this.modalList.title !== 'Research List') {
+      return false;
+    } else {
+      return !(!item.disabled && (item.costRPoints < this.gameObject.researchPoints));
+    }
+  };
+
+  openDescription(flag, obj) {
     if (flag) {
       this.modalList.list.forEach(element => {
         element.openDes = false;

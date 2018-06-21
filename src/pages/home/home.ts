@@ -13,60 +13,26 @@ import { CommonMethodsProvider } from '../../providers/common-methods/common-met
 export class HomePage {
   @ViewChildren('tileComponent') tileComponent: any;
   tileInfoArr: Array<any> = [];
-  ageList: Array<any> = [];
   gameObject: any;
   modalInfo: any = {};
   modalList: any = {};
   constructor(public navCtrl: NavController, private globalService: GlobalProvider, private researchService: ResearchServiceProvider, private commonService: CommonMethodsProvider) {
     this.globalService.getGameDummy().subscribe(data => this.gameSetupHelper(data), error => console.log(error));
+    this.globalService.getHomeTilesDummy().subscribe(data => this.fillTiles(data), error => console.log(error));
   }
 
   ngOnInit() {
 
   }
 
-  fillTiles() {
-    this.tileInfoArr = [
-      {
-        displayName:'Research',
-        name: 'research',
-        progress: 1,
-        description: "Description Here",
-        progressSpeed: this.gameObject.researchProgress,
-        allowNext: true,
-      },
-      {
-        displayName:'Wonders',
-        name: 'wonders',
-        progress: 1,
-        description: "Description Here",
-        progressSpeed: '',
-        allowNext: true,
-      },
-      {
-        displayName:'Law',
-        name: 'law',
-        progress: 1,
-        description: "Description Here",
-        progressSpeed: '',
-        allowNext: true,
-      },
-      {
-        displayName:'Neighbours',
-        name: 'neighbours',
-        progress: 1,
-        description: "Description Here",
-        progressSpeed: '',
-        allowNext: true,
-      },
-    ];
+  fillTiles(data) {
+    this.tileInfoArr = data;
   }
 
   gameSetupHelper(data) {
     this.globalService.updateGameObject(data);
     this.globalService.gameCycle();
     this.gameObject = this.globalService.getGameObject();
-    this.fillTiles();
     if (this.gameObject && (this.gameObject.age || this.gameObject.age === 0)) {
       if (this.gameObject.age !== 0) {
         this.incrementAge(this.gameObject.age);
@@ -137,7 +103,7 @@ export class HomePage {
           this.incrementAge(this.gameObject.age);
         } else {
           element.move(stuff.data.name);
-          this.gameObject = this.researchService.doResearch(this.gameObject);
+          this.gameObject = this.researchService.doResearch(this.gameObject, stuff.data);
         }
       }
     });

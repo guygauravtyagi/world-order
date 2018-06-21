@@ -113,4 +113,12 @@ export class GlobalProvider {
         return data;
       });
   };
+
+  getHomeTilesDummy() {
+    return this.http.get('./assets/data/api/homeTileListDummy.json')
+      .map((response: Response) => {
+        const data = response;
+        return data;
+      });
+  };
 }

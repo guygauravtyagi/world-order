@@ -79,6 +79,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "lorem ipsum tabda tabda",
             "bonus": []
         },
@@ -89,6 +91,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "",
             "bonus": []
         },
@@ -99,6 +103,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "",
             "bonus": []
         },
@@ -109,6 +115,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "",
             "bonus": []
         },
@@ -119,6 +127,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "",
             "bonus": []
         },
@@ -129,6 +139,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "",
             "bonus": []
         },
@@ -139,6 +151,8 @@
             "costRPoints": 10,
             "status": true,
             "openDes": false,
+            "disabled": false,
+            "visible": true,
             "description": "",
             "bonus": []
         }

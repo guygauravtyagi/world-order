@@ -1,0 +1,34 @@
+[
+      {
+        "displayName":"Research",
+        "name": "research",
+        "progress": 1,
+        "description": "Description Here",
+        "progressSpeed": 0,
+        "allowNext": true
+      },
+      {
+        "displayName":"Wonders",
+        "name": "wonders",
+        "progress": 1,
+        "description": "Description Here",
+        "progressSpeed": 1,
+        "allowNext": true
+      },
+      {
+        "displayName":"Law",
+        "name":"law",
+        "progress": 1,
+        "description": "Description Here",
+        "progressSpeed": 1,
+        "allowNext": true
+      },
+      {
+        "displayName":"Neighbours",
+        "name": "neighbours",
+        "progress": 1,
+        "description": "Description Here",
+        "progressSpeed": 1,
+        "allowNext": true
+      }
+    ]
