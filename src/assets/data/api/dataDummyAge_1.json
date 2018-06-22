@@ -156,5 +156,31 @@
             "description": "",
             "bonus": []
         }
+    ],
+    "researchBuildList":[
+        {
+            "name": "scavenger",
+            "displayName": "Scavanger Area",
+            "cost": 2,
+            "area": 2,
+            "researchSpeedGain": 0.001,
+            "pollution": 0,
+            "employee":1,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        },
+        {
+            "name": "herb",
+            "displayName": "Herb Area",
+            "cost": 4,
+            "area": 4,
+            "researchSpeedGain": 0.002,
+            "pollution": 0,
+            "employee":1,
+            "happiness": 0,
+            "count": 0,
+            "age": 1
+        }
     ]
 }

@@ -15,7 +15,8 @@
     "provinces": [
         {
             "id":"0",
-            "name":"Delhi",
+            "name":"delhi",
+            "displayName":"Delhi",
             "worth": 1000,
             "populationLimit":0,
             "population": 1000,
@@ -50,7 +51,8 @@
         },
         {
             "id":"1",
-            "name":"Meerut",
+            "name":"meerut",
+            "displayName":"Meerut",
             "worth": 1000,
             "populationLimit":0,
             "pollutionLimit":0,
@@ -62,6 +64,43 @@
             "stability":100,
             "totalArea":20000,
             "area": 10000,
+            "buildings": {
+                "commercial":[],
+                "residence":[],
+                "government":[],
+                "happiness":[],
+                "resource":[]
+            },
+            "resources":[
+                {
+                    "name":"forest",
+                    "id":"0"
+                },
+                {
+                    "name":"farmland",
+                    "id":"1"
+                },
+                {
+                    "name":"clay",
+                    "id":"3"
+                }
+            ]
+        },
+        {
+            "id":"2",
+            "name":"bangalore",
+            "displayName":"Bangalore",
+            "worth": 10000,
+            "populationLimit":0,
+            "pollutionLimit":0,
+            "population": 0,
+            "pollution": 0,
+            "literacy": 0,
+            "employed":0,
+            "happiness":100,
+            "stability":100,
+            "totalArea":100000,
+            "area": 30000,
             "buildings": {
                 "commercial":[],
                 "residence":[],

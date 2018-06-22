@@ -16,12 +16,15 @@ export class BuildPage {
   province: any;
   id: Number;
   houseList: any;
-  openHousingList:boolean = false;
+  researchBuildList:any;
   openConstruction:boolean = false;
+  openHousingList:boolean = false;
+  openResearchBuildList:boolean = false;
   previousPage:String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private globalService: GlobalProvider, private buildService: BuildServiceProvider, private commonMethods: CommonMethodsProvider) {
     this.houseList = this.globalService.getAgeDataObj().houseList;
+    this.researchBuildList = this.globalService.getAgeDataObj().researchBuildList;
     this.id = navParams.get('id');
     this.previousPage =  navParams.get('page');
     this.gameObj = this.globalService.getGameObject();
@@ -48,7 +51,9 @@ export class BuildPage {
 
         break;
       case 'research':
-
+        this.openConstruction = true;
+        this.openResearchBuildList = true;
+        this.pageTittle = "Build Research Facility"
         break;
       default:
         break;
@@ -63,6 +68,7 @@ export class BuildPage {
 
   hideEveryList () {
     this.openHousingList = false;
+    this.openResearchBuildList = false;
   };
 
   buildHouse (house) {
@@ -71,6 +77,14 @@ export class BuildPage {
 
   destroyHouse (house) {
     this.buildService.decrementHouse(this.province, 'residence', house, this.gameObj);
+  };
+
+  buildResearch (build) {
+    this.buildService.incrementResearch(this.province, 'resource', build, this.gameObj);
+  };
+
+  destroyResearch (build) {
+    this.buildService.decrementResearch(this.province, 'resource', build, this.gameObj);
   };
 
   destroyAll () {

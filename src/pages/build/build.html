@@ -66,10 +66,10 @@
         Commercial Buildings
       </h4>
       <div class="container">
-        <div *ngFor="let houseDetails of province.buildings.residence; index as i; even as isEven; odd as isOdd">
+        <div *ngFor="let commercialDetails of province.buildings.commercial; index as i; even as isEven; odd as isOdd">
           <div>
-            <label>{{houseDetails.displayName}}</label>
-            <label>{{houseDetails.count}}</label>
+            <label>{{commercialDetails.displayName}}</label>
+            <label>{{commercialDetails.count}}</label>
           </div>
           <div>
             <button (click)="destroyAll('commercial')">
@@ -89,10 +89,10 @@
         Research Buildings
       </h4>
       <div class="container">
-        <div *ngFor="let houseDetails of province.buildings.residence; index as i; even as isEven; odd as isOdd">
+        <div *ngFor="let resourceBuildDetails of province.buildings.resource; index as i; even as isEven; odd as isOdd">
           <div>
-            <label>{{houseDetails.displayName}}</label>
-            <label>{{houseDetails.count}}</label>
+            <label>{{resourceBuildDetails.displayName}}</label>
+            <label>{{resourceBuildDetails.count}}</label>
           </div>
           <div>
             <button (click)="destroyAll('research')">
@@ -123,6 +123,18 @@
           </div>
           <button (click)="buildHouse(house)">Build</button>
           <button (click)="destroyHouse(house)">Destroy</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="researchBuildList && researchBuildList.length > 0 && openResearchBuildList">
+      <div *ngFor="let researchBuild of researchBuildList; index as i; even as isEven; odd as isOdd">
+        <div *ngIf="researchBuild.age === gameObj.age">
+          <div>
+            <h5>{{researchBuild.name}}</h5>
+            <label>count : {{researchBuild.count}}</label>
+          </div>
+          <button (click)="buildResearch(researchBuild)">Build</button>
+          <button (click)="destroyResearch(researchBuild)">Destroy</button>
         </div>
       </div>
     </div>
