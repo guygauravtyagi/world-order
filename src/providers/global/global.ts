@@ -64,7 +64,7 @@ export class GlobalProvider {
     this.gameObj.provinces.forEach(element => {
       if (element.populationLimit > element.population) {
         element.population++;
-        this.gameObj.population ++;
+        this.gameObj.population++;
       }
       if (element.pollutionLimit > element.pollution) {
         element.pollution++;
