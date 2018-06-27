@@ -82,7 +82,17 @@
             "disabled": false,
             "visible": true,
             "description": "lorem ipsum tabda tabda",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         },
         {
             "displayName": "Fire",
@@ -94,7 +104,17 @@
             "disabled": false,
             "visible": true,
             "description": "",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         },
         {
             "displayName": "Fire",
@@ -106,7 +126,17 @@
             "disabled": false,
             "visible": true,
             "description": "",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         },
         {
             "displayName": "Fire",
@@ -118,7 +148,17 @@
             "disabled": false,
             "visible": true,
             "description": "",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         },
         {
             "displayName": "Fire",
@@ -130,7 +170,17 @@
             "disabled": false,
             "visible": true,
             "description": "",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         },
         {
             "displayName": "Fire",
@@ -142,7 +192,17 @@
             "disabled": false,
             "visible": true,
             "description": "",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         },
         {
             "displayName": "Fire",
@@ -154,10 +214,20 @@
             "disabled": false,
             "visible": true,
             "description": "",
-            "bonus": []
+            "bonus": {
+                "research": [],
+                "building": {
+                    "commercial": [],
+                    "residence": [],
+                    "government": [],
+                    "happiness": [],
+                    "resource": [],
+                    "researchBuild": []
+                }
+            }
         }
     ],
-    "researchBuildList":[
+    "researchBuildList": [
         {
             "name": "scavenger",
             "displayName": "Scavanger Area",
@@ -165,7 +235,7 @@
             "area": 2,
             "researchSpeedGain": 0.001,
             "pollution": 0,
-            "employee":1,
+            "employee": 1,
             "happiness": 0,
             "count": 0,
             "age": 1
@@ -177,7 +247,7 @@
             "area": 4,
             "researchSpeedGain": 0.002,
             "pollution": 0,
-            "employee":1,
+            "employee": 1,
             "happiness": 0,
             "count": 0,
             "age": 1
